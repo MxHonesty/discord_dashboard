@@ -8,3 +8,6 @@ with open("src/index.html") as file:
     text = file.read()
     replace_name('Steli', text)
     replace_server('Server', text)
+
+with open("src/server_grid.html") as file:
+    print(file.read())
