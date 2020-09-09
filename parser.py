@@ -1,8 +1,8 @@
 def replace_name(nume, html):
-    print(html.replace("$NUME_BOT$", nume))
+    return html.replace("$NUME_BOT$", nume)
 
 def replace_server(server, html):
-    print(html.replace("$NUME_SERVER$", server))
+    return html.replace("$NUME_SERVER$", server)
 
 #with open("src/index.html") as file:
 #    text = file.read()
@@ -20,5 +20,7 @@ def read_server_holder():
     with open("src/server_grid.html") as f:
         return f.read()
 
-print(read_main_page())
-print(read_server_holder())
+html = read_main_page()
+template = read_server_holder()
+
+test_list = ["Server1" , "Server2", "Server3"]
