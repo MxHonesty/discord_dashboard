@@ -15,23 +15,29 @@ def add_server_list(lista_finala, html):    # introduce lista finala cu toate se
 #with open("src/server_grid.html") as file:
 #    print(file.read())
 
+# Citeste index.html ca string
 def read_main_page():
     with open("src/index.html") as f:
         return f.read()
 
+# Citeste template-ul pentru grid server ca string
 def read_server_holder():
     with open("src/server_grid.html") as f:
         return f.read()
 
+# Index html
 html = read_main_page()
+
+# Template server grid
 template = read_server_holder()
 
-test_list = ["Server1" , "Server2", "Server3", "Server4"]
+test_list = ["Server1" , "Server2", "Server3", "Server4"] # Lista nume servere
 
+# Html final cu listat aduagata
 html_final = ""
 
-for element in test_list:
-    personalizat = replace_server(element, template)
-    html_final = html_final + personalizat
+for element in test_list:   # Pentru fiecare element din lista
+    personalizat = replace_server(element, template)    # Inlocuieste numele serverului in template
+    html_final = html_final + personalizat              # Adauga template-ul inlocuit in acelasi string
 
 print(add_server_list(html_final, html))
