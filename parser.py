@@ -23,4 +23,12 @@ def read_server_holder():
 html = read_main_page()
 template = read_server_holder()
 
-test_list = ["Server1" , "Server2", "Server3"]
+test_list = ["Server1" , "Server2", "Server3", "Server4"]
+
+html_final = ""
+
+for element in test_list:
+    personalizat = replace_server(element, template)
+    html_final = html_final + personalizat
+
+print(html_final)
