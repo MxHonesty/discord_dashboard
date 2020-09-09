@@ -1,8 +1,11 @@
-def replace_name(nume, html):
+def replace_name(nume, html):           # introduce numele botului in html principal
     return html.replace("$NUME_BOT$", nume)
 
 def replace_server(server, html):
-    return html.replace("$NUME_SERVER$", server)
+    return html.replace("$NUME_SERVER$", server)    #introduce numele serverului in template
+
+def add_server_list(lista_finala, html):    # introduce lista finala cu toate serverele in html principal
+    return html.replace("$SERVER$", lista_finala)
 
 #with open("src/index.html") as file:
 #    text = file.read()
@@ -31,4 +34,4 @@ for element in test_list:
     personalizat = replace_server(element, template)
     html_final = html_final + personalizat
 
-print(html_final)
+print(add_server_list(html_final, html))
