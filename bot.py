@@ -27,3 +27,11 @@ async def on_message(message):
 
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
+
+def get_servers():
+    list = client.guilds
+    name_list = []
+    for serv in list:
+        name_list.append(serv.name)
+
+    return name_list
