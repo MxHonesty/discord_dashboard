@@ -25,19 +25,27 @@ def read_server_holder():
     with open("src/server_grid.html") as f:
         return f.read()
 
-# Index html
-html = read_main_page()
+test_list = ["Server1" , "Server2", "Server3", "Server4", "ServerNeb"] # Lista nume servere
 
-# Template server grid
-template = read_server_holder()
+# Functia care primeste lista de nume ale serverelor
+# Si returneaza html-ul final ca string
+def get_appened_html(list):
 
-test_list = ["Server1" , "Server2", "Server3", "Server4"] # Lista nume servere
+    # Index html
+    html = read_main_page()
 
-# Html final cu listat aduagata
-html_final = ""
+    # Template server grid
+    template = read_server_holder()
 
-for element in test_list:   # Pentru fiecare element din lista
-    personalizat = replace_server(element, template)    # Inlocuieste numele serverului in template
-    html_final = html_final + personalizat              # Adauga template-ul inlocuit in acelasi string
+    # Html final cu listat aduagata
+    html_final = ""
 
-print(add_server_list(html_final, html))
+    for element in list:   # Pentru fiecare element din lista
+        personalizat = replace_server(element, template)    # Inlocuieste numele serverului in template
+        html_final = html_final + personalizat              # Adauga template-ul inlocuit in acelasi string
+
+    return add_server_list(html_final, html)
+
+# Functia care primeste lista si numele botului si returneaza html-ul final pentru afisat
+def get_final_html(list, nume_bot):
+    return replace_name(nume_bot, get_appened_html(list))
